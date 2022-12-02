@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Add a task</title>
+{% endblock %}
+
+{% block body %}
+<div class="card w-50 mx-auto">
+  <div class="card-header">
+    New Task
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Add a new task</h5>
+    <form action="{% url 'add' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_div }}
+        <button type="submit" class="btn btn-primary m-3" value="Save"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+    </form>
+  </div>
+</div>
+    <a href="{% url 'index' %}"><p class="btn btn-warning m-2"><i class="bi bi-eye-fill"></i>View Tasks</p></a>
+{% endblock %}
